@@ -26,8 +26,8 @@ overflow-x:hidden;
 
 background:
 linear-gradient(
-rgba(0,0,0,.95),
-rgba(0,0,0,.98)),
+rgba(0,0,0,.75),
+rgba(0,0,0,.80)),
 url("https://raw.githubusercontent.com/kevindanieldelara60-cell/Gojo-imagen/refs/heads/main/Picsart_26-05-28_05-43-19-680.jpg");
 
 background-size:cover;
@@ -56,25 +56,17 @@ position:fixed;
 inset:0;
 pointer-events:none;
 z-index:-1;
-opacity:.65;
+opacity:.55;
 
 background-image:
-radial-gradient(circle, rgba(244,215,122,.95) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(212,175,55,.85) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(255,215,0,.70) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(244,215,122,.90) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(212,175,55,.70) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(255,255,255,.60) 1px, transparent 1.5px),
-radial-gradient(circle, rgba(244,215,122,.80) 1px, transparent 1.5px);
+radial-gradient(circle, rgba(200,144,10,.95) 1px, transparent 1.5px),
+radial-gradient(circle, rgba(184,130,11,.90) 1px, transparent 1.5px),
+radial-gradient(circle, rgba(210,150,5,.85) 1px, transparent 1.5px);
 
 background-size:
-90px 90px,
-120px 120px,
-150px 150px,
-180px 180px,
-210px 210px,
-75px 75px,
-60px 60px;
+160px 160px,
+220px 220px,
+280px 280px;
 
 animation:particlesMove 12s linear infinite;
 }
