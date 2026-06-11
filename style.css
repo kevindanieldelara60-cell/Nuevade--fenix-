@@ -573,6 +573,16 @@ grid-template-columns:repeat(2,1fr) !important;
 
 }
 
+.active-page .products-grid{
+display:grid !important;
+}
+
+.active-page #ff-id,
+.active-page #ig-visualizaciones,
+.active-page #ig-likes{
+display:none !important;
+}
+
 @media (min-width:768px){
 
 .categories-grid{
