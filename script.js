@@ -208,15 +208,20 @@ window.addEventListener("DOMContentLoaded",()=>{
     });
     homePage.classList.add("active-page");
 
-    ffContents.forEach(content=>{
-        content.style.display="none";
-    });
+    // Ocultar solo los tabs de FF
+    document.getElementById("ff-ilimitados").style.display="none";
+    document.getElementById("ff-id").style.display="none";
+
+    // Mostrar solo el tab activo de FF
     document.getElementById("ff-ilimitados").style.display="grid";
     document.getElementById("ff-ilimitados").classList.add("active-content");
 
-    igContents.forEach(content=>{
-        content.style.display="none";
-    });
+    // Ocultar solo los tabs de Instagram
+    document.getElementById("ig-seguidores").style.display="none";
+    document.getElementById("ig-visualizaciones").style.display="none";
+    document.getElementById("ig-likes").style.display="none";
+
+    // Mostrar solo el tab activo de Instagram
     document.getElementById("ig-seguidores").style.display="grid";
     document.getElementById("ig-seguidores").classList.add("active-content");
 
