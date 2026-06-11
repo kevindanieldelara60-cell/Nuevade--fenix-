@@ -436,6 +436,16 @@ width:16px;
 height:16px;
 }
 
+.hora-gold{
+color:var(--gold-2);
+font-weight:700;
+}
+
+.hora-roja{
+color:#ff4444;
+font-weight:700;
+}
+
 .horario{
 margin-top:6px;
 font-size:.78rem;
