@@ -68,7 +68,7 @@ background-size:
 220px 220px,
 280px 280px;
 
-animation:particlesMove 12s linear infinite;
+animation:particlesMove 9s linear infinite;
 }
 
 @keyframes particlesMove{
