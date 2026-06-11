@@ -130,7 +130,7 @@ document.querySelectorAll(".ig-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
         const price = button.closest(".product-card").querySelector(".price").textContent;
-        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante\n\nMi 🆔:`;
+        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante`;
         openWhatsApp(message);
     });
 });
@@ -139,7 +139,7 @@ document.querySelectorAll(".robux-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
         const price = button.closest(".product-card, .pack-pro-content").querySelector(".price").textContent;
-        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante\n\nMi 🆔:`;
+        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante`;
         openWhatsApp(message);
     });
 });
@@ -148,7 +148,7 @@ document.querySelectorAll(".wifi-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
         const price = button.closest(".product-card").querySelector(".price").textContent;
-        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante\n\nMi 🆔:`;
+        const message=`👋Hola Satoru\n\nQuiero ${product}\n${price}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara\nEnseguida te mando comprobante`;
         openWhatsApp(message);
     });
 });
