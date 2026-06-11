@@ -11,23 +11,37 @@ function showPage(pageId){
     if(targetPage){
         targetPage.classList.add("active-page");
         window.scrollTo({top:0,behavior:"smooth"});
+        history.pushState({page:pageId},"",window.location.pathname);
     }
 }
 
+function goHome(){
+    pages.forEach(page=>{
+        page.classList.remove("active-page");
+    });
+    homePage.classList.add("active-page");
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+window.addEventListener("popstate",(e)=>{
+    if(e.state && e.state.page){
+        pages.forEach(page=>page.classList.remove("active-page"));
+        document.getElementById(e.state.page).classList.add("active-page");
+    } else {
+        goHome();
+    }
+});
+
 document.querySelectorAll(".category-card").forEach(card=>{
     card.addEventListener("click",()=>{
-        const pageId = card.dataset.open;
-        showPage(pageId);
+        showPage(card.dataset.open);
     });
 });
 
 document.querySelectorAll(".back-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
-        pages.forEach(page=>{
-            page.classList.remove("active-page");
-        });
-        homePage.classList.add("active-page");
-        window.scrollTo({top:0,behavior:"smooth"});
+        goHome();
+        history.pushState({page:"home-section"},"",window.location.pathname);
     });
 });
 
@@ -40,46 +54,27 @@ const ffContents = [
 ffTabs.forEach(tab=>{
     tab.addEventListener("click",()=>{
 
-        ffTabs.forEach(btn=>{
-            btn.classList.remove("active-tab");
-        });
+        ffTabs.forEach(btn=>btn.classList.remove("active-tab"));
         tab.classList.add("active-tab");
 
-        const current = ffContents.find(c=>c.style.display==="grid");
+        const current = ffContents.find(c=>!c.classList.contains("tab-hidden"));
 
         if(current){
             current.classList.add("tab-exit");
             setTimeout(()=>{
                 current.classList.remove("tab-exit");
-                current.classList.remove("active-content");
-                current.style.display="none";
+                current.classList.add("tab-hidden");
 
                 const target =
                 tab.dataset.ff==="ilimitados"
                 ?document.getElementById("ff-ilimitados")
                 :document.getElementById("ff-id");
 
-                target.style.display="grid";
-                target.classList.add("active-content","tab-enter");
-
-                setTimeout(()=>{
-                    target.classList.remove("tab-enter");
-                },300);
-
+                target.classList.remove("tab-hidden");
+                target.classList.add("tab-enter");
+                setTimeout(()=>target.classList.remove("tab-enter"),300);
             },250);
-        } else {
-            const target =
-            tab.dataset.ff==="ilimitados"
-            ?document.getElementById("ff-ilimitados")
-            :document.getElementById("ff-id");
-
-            target.style.display="grid";
-            target.classList.add("active-content","tab-enter");
-            setTimeout(()=>{
-                target.classList.remove("tab-enter");
-            },300);
         }
-
     });
 });
 
@@ -93,46 +88,27 @@ const igContents = [
 igTabs.forEach(tab=>{
     tab.addEventListener("click",()=>{
 
-        igTabs.forEach(btn=>{
-            btn.classList.remove("active-ig");
-        });
+        igTabs.forEach(btn=>btn.classList.remove("active-ig"));
         tab.classList.add("active-ig");
 
-        const current = igContents.find(c=>c.style.display==="grid");
+        const current = igContents.find(c=>!c.classList.contains("tab-hidden"));
 
         if(current){
             current.classList.add("tab-exit");
             setTimeout(()=>{
                 current.classList.remove("tab-exit");
-                current.classList.remove("active-content");
-                current.style.display="none";
+                current.classList.add("tab-hidden");
 
                 let target;
                 if(tab.dataset.ig==="seguidores") target=document.getElementById("ig-seguidores");
                 if(tab.dataset.ig==="visualizaciones") target=document.getElementById("ig-visualizaciones");
                 if(tab.dataset.ig==="likes") target=document.getElementById("ig-likes");
 
-                target.style.display="grid";
-                target.classList.add("active-content","tab-enter");
-
-                setTimeout(()=>{
-                    target.classList.remove("tab-enter");
-                },300);
-
+                target.classList.remove("tab-hidden");
+                target.classList.add("tab-enter");
+                setTimeout(()=>target.classList.remove("tab-enter"),300);
             },250);
-        } else {
-            let target;
-            if(tab.dataset.ig==="seguidores") target=document.getElementById("ig-seguidores");
-            if(tab.dataset.ig==="visualizaciones") target=document.getElementById("ig-visualizaciones");
-            if(tab.dataset.ig==="likes") target=document.getElementById("ig-likes");
-
-            target.style.display="grid";
-            target.classList.add("active-content","tab-enter");
-            setTimeout(()=>{
-                target.classList.remove("tab-enter");
-            },300);
         }
-
     });
 });
 
@@ -144,14 +120,7 @@ function openWhatsApp(message){
 document.querySelectorAll(".ff-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
-        const message =
-`Hola Satoru
-
-Quiero ${product}
-
-Alias: Satorualias99
-
-A nombre de: Kevin Daniel de Lara`;
+        const message=`Hola Satoru\n\nQuiero ${product}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara`;
         openWhatsApp(message);
     });
 });
@@ -159,14 +128,7 @@ A nombre de: Kevin Daniel de Lara`;
 document.querySelectorAll(".ig-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
-        const message =
-`Hola Satoru
-
-Quiero ${product}
-
-Alias: Satorualias99
-
-A nombre de: Kevin Daniel de Lara`;
+        const message=`Hola Satoru\n\nQuiero ${product}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara`;
         openWhatsApp(message);
     });
 });
@@ -174,14 +136,7 @@ A nombre de: Kevin Daniel de Lara`;
 document.querySelectorAll(".robux-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
-        const message =
-`Hola Satoru
-
-Quiero ${product}
-
-Alias: Satorualias99
-
-A nombre de: Kevin Daniel de Lara`;
+        const message=`Hola Satoru\n\nQuiero ${product}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara`;
         openWhatsApp(message);
     });
 });
@@ -189,34 +144,19 @@ A nombre de: Kevin Daniel de Lara`;
 document.querySelectorAll(".wifi-buy").forEach(button=>{
     button.addEventListener("click",()=>{
         const product = button.dataset.product;
-        const message =
-`Hola Satoru
-
-Quiero ${product}
-
-Alias: Satorualias99
-
-A nombre de: Kevin Daniel de Lara`;
+        const message=`Hola Satoru\n\nQuiero ${product}\n\nAlias: Satorualias99\n\nA nombre de: Kevin Daniel de Lara`;
         openWhatsApp(message);
     });
 });
 
 window.addEventListener("DOMContentLoaded",()=>{
 
-    pages.forEach(page=>{
-        page.classList.remove("active-page");
-    });
+    pages.forEach(page=>page.classList.remove("active-page"));
     homePage.classList.add("active-page");
+    history.replaceState({page:"home-section"},"",window.location.pathname);
 
-    document.getElementById("ff-ilimitados").style.display="none";
-    document.getElementById("ff-id").style.display="none";
-    document.getElementById("ff-ilimitados").style.display="grid";
-    document.getElementById("ff-ilimitados").classList.add("active-content");
-
-    document.getElementById("ig-seguidores").style.display="none";
-    document.getElementById("ig-visualizaciones").style.display="none";
-    document.getElementById("ig-likes").style.display="none";
-    document.getElementById("ig-seguidores").style.display="grid";
-    document.getElementById("ig-seguidores").classList.add("active-content");
+    document.getElementById("ff-id").classList.add("tab-hidden");
+    document.getElementById("ig-visualizaciones").classList.add("tab-hidden");
+    document.getElementById("ig-likes").classList.add("tab-hidden");
 
 });
