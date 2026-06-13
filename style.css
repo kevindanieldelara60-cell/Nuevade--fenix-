@@ -456,6 +456,9 @@ color:#d9d9d9;
 color:#2bd46e;
 font-weight:700;
 }
+.categories-grid .category-card:last-child{
+grid-column:1 / -1;
+}
 
 @media (max-width:480px){
 
