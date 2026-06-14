@@ -168,8 +168,4 @@ window.addEventListener("DOMContentLoaded",()=>{
     homePage.classList.add("active-page");
     history.replaceState({page:"home-section"},"",window.location.pathname);
 
-    document.getElementById("ff-id").classList.add("tab-hidden");
-    document.getElementById("ig-visualizaciones").classList.add("tab-hidden");
-    document.getElementById("ig-likes").classList.add("tab-hidden");
-
 });
