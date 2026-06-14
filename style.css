@@ -142,6 +142,10 @@ grid-template-columns:repeat(2,1fr);
 gap:14px;
 }
 
+.categories-grid > div:nth-child(5){
+grid-column:1 / span 2;
+}
+
 .category-card{
 cursor:pointer;
 overflow:hidden;
@@ -187,15 +191,11 @@ font-size:.95rem;
 color:var(--gold-2);
 }
 
-.categories-grid{
+.products-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:14px;
-grid-auto-rows:auto;
-}
-
-.categories-grid > div:nth-child(5){
-grid-column:1 / span 2;
+margin-bottom:14px;
 }
 
 .products-grid.tab-hidden{
@@ -459,9 +459,6 @@ color:#d9d9d9;
 .hora-verde{
 color:#2bd46e;
 font-weight:700;
-}
-.categories-grid .category-card:last-child{
-grid-column:1 / -1;
 }
 
 @media (max-width:480px){
